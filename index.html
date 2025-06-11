@@ -4,875 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>奇美醫院教學中心 | 醫學教育職涯發展規劃平台</title>
-    <style>
-        :root {
-            --primary-color: #0078d4;
-            --secondary-color: #6264a7;
-            --tertiary-color: #ff6b6b;
-            --accent-color: #14b8a6; /* New accent color for AI Mentor section */
-            --dark-blue: #1e3a8a;
-            --light-blue: #dbeafe;
-            --warm-orange: #ffedd5;
-            --light-bg: #f8fafc;
-            --dark-text: #1e293b;
-            --medium-text: #475569;
-            --light-text: #94a3b8;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            --pop-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-            --button-shadow: 0 2px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05); /* New button shadow */
-            --hero-gradient: linear-gradient(120deg, #0078d4, #6264a7);
-            --warm-gradient: linear-gradient(120deg, #fb7185, #ff9f59);
-            
-            /* Member color variables */
-            --member-wu-color: linear-gradient(90deg, #0078d4, #4285f4);
-            --member-lin-color: linear-gradient(90deg, #14b8a6, #34a853);
-            --member-hsu-color: linear-gradient(90deg, #ff6b6b, #ff9f59);
-            --member-yang-color: linear-gradient(90deg, #6264a7, #a78bfa);
-            --member-chen-color: linear-gradient(90deg, #10b981, #059669);
-            --member-lu-color: linear-gradient(90deg, #f97316, #fb7185);
-            
-            /* Individual career page variables */
-            /* --mentor-color: #ff7043; /* Original orange color for mentor */
-            --new-mentor-theme-color: var(--accent-color); /* Using accent color for AI Mentor, can be changed */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Portal Header */
-        .portal-header {
-            background: var(--hero-gradient);
-            color: white;
-            padding: 35px 0 35px; /* Increased bottom padding from 80px to 100px */
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .portal-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxmaWx0ZXIgaWQ9Im5vaXNlIiB4PSIwIiB5PSIwIj4KICAgICAgICA8ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9IjAuMDEgMC4wMSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCI+PC9mZVR1cmJ1bGVuY2U+CiAgICAgICAgPGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0idHVyYnVsZW5jZSIgbW9kZT0ic2NyZWVuIj48L2ZlQmxlbmQ+CiAgICA8L2ZpbHRlcj4KICAgIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMSI+PC9yZWN0Pgo8L3N2Zz4=');
-            opacity: 0.1;
-        }
-        
-        .portal-header .container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-bottom: 1rem;
-        }
-        
-        .header-desc {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 600px;
-        }
-        
-        .dna-icon {
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 180px;
-            height: 180px;
-            opacity: 0.15;
-        }
-        
-        /* Main content styling */
-        .portal-main {
-            margin-top: -25px; /* This creates the overlap, adjust if the increased header padding is too much */
-            padding-bottom: 60px;
-        }
-        
-        .insights-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            padding: 45px;
-            margin-bottom: 40px;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            color: var(--dark-blue);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .card-title i {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: var(--light-bg);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--pop-shadow);
-        }
-        
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            background: var(--warm-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .stat-label {
-            color: var(--medium-text);
-            font-size: 0.95rem;
-        }
-        
-        .chart-container {
-            width: 100%;
-            height: 300px; /* Ensure this height is sufficient for bars + labels */
-            position: relative;
-            margin-top: 20px;
-            background: var(--light-bg);
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: visible; /* Changed from hidden to visible to ensure labels aren't cut */
-            padding-bottom: 40px; /* Added padding for labels */
-        }
-        
-        .chart-placeholder {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .bar {
-            position: absolute;
-            bottom: 0; /* Bars start from the bottom of .chart-placeholder */
-            width: 40px;
-            border-radius: 4px 4px 0 0;
-            transition: height 1s ease-out;
-        }
-        
-        .bar-label {
-            position: absolute;
-            bottom: -35px; /* Adjusted to give more space, ensures it's below the bar */
-            width: 100px; /* Allow more width for text */
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--medium-text);
-            white-space: normal; /* Allow text wrapping */
-            line-height: 1.2; 
-            height: auto; /* Auto height for wrapped text */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align text to the top if it wraps */
-        }
-        
-        .bar-value {
-            position: absolute;
-            top: -25px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: var(--dark-text);
-        }
-        
-        /* Team members section */
-        .team-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            padding: 30px;
-        }
-        
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .member-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--pop-shadow);
-        }
-        
-        .member-color-bar {
-            height: 8px;
-            width: 100%;
-        }
-        
-        .member-content {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .member-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .member-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark-blue);
-        }
-        
-        .member-title {
-            color: var(--medium-text);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .member-specialties {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        
-        .specialty-tag {
-            background: var(--light-bg);
-            color: var(--medium-text);
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 12px;
-        }
-        
-        .view-button {
-            display: inline-block;
-            background: var(--light-blue);
-            color: var(--dark-blue);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: var(--button-shadow); /* Updated shadow */
-        }
-        
-        .view-button:hover {
-            background: var(--dark-blue);
-            color: white;
-            box-shadow: var(--pop-shadow); /* Optional: different shadow on hover */
-        }
-        
-        .stroke-count {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--medium-text);
-            font-size: 0.75rem;
-            padding: 2px 6px;
-            border-radius: 10px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--medium-text);
-            font-size: 0.9rem;
-        }
-        
-        .note {
-            margin-top: 30px;
-            text-align: center;
-            color: var(--medium-text);
-            font-size: 0.9rem;
-        }
-        
-        /* Hexagon Grid Background */
-        .hexagon-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSI0OSIgdmlld0JveD0iMCAwIDI4IDQ5Ij48ZyBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDYiPjxwYXRoIGQ9Ik0xMy45OTIgMTUuMDI1TDI3Ljk4NSAuMDEyIDEzLjk5MiAxNS4wMjUgMCAuMDEybDEzLjk5MiAxNS4wMTN6TTI4IDI0LjQ5NWwtMTMuOTg5IDE1LjAyNUwwIDI0LjQ5NWwxMy45ODktMTUuMDEzTDI4IDI0LjQ5NXoiLz48L2c+PC9zdmc+');
-            background-size: 24px;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-        
-        /* Career Plan Page Styles */
-        .career-page {
-            display: none; /* Hidden by default */
-        }
-        
-        .career-page.active {
-            display: block;
-        }
-        
-        .career-header {
-            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            border-radius: 0 0 10px 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-        
-        .career-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .career-header h2 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            opacity: 0.9;
-        }
-        
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .tab-btn {
-            background-color: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 12px 24px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-        
-        .tab-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .tab-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 120, 212, 0.3); /* Using primary color for shadow */
-        }
-        
-        /* Special style for AI Mentor tab - NOW USES NEW THEME COLOR */
-        .tab-btn[data-tab="mentor-wu"], 
-        .tab-btn[data-tab="mentor-chen"],
-        .tab-btn[data-tab="mentor-hsu"],
-        .tab-btn[data-tab="mentor-yang"],
-        .tab-btn[data-tab="mentor-lin"],
-        .tab-btn[data-tab="mentor-lu"] { /* Applied to all mentor tabs for consistency */
-            color: var(--new-mentor-theme-color);
-            border: 2px solid var(--new-mentor-theme-color);
-        }
-        
-        .tab-btn[data-tab="mentor-wu"]:hover,
-        .tab-btn[data-tab="mentor-chen"]:hover,
-        .tab-btn[data-tab="mentor-hsu"]:hover,
-        .tab-btn[data-tab="mentor-yang"]:hover,
-        .tab-btn[data-tab="mentor-lin"]:hover,
-        .tab-btn[data-tab="mentor-lu"]:hover {
-            background-color: var(--new-mentor-theme-color);
-            color: white;
-        }
-        
-        .tab-btn[data-tab="mentor-wu"].active,
-        .tab-btn[data-tab="mentor-chen"].active,
-        .tab-btn[data-tab="mentor-hsu"].active,
-        .tab-btn[data-tab="mentor-yang"].active,
-        .tab-btn[data-tab="mentor-lin"].active,
-        .tab-btn[data-tab="mentor-lu"].active {
-            background-color: var(--new-mentor-theme-color);
-            color: white;
-            box-shadow: 0 4px 8px rgba(20, 184, 166, 0.3); /* Shadow based on new theme color */
-        }
-        
-        .tab-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px var(--shadow);
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tab-content h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--light-text);
-            padding-bottom: 10px;
-        }
-        
-        /* Special title color for AI Mentor tab - NOW USES NEW THEME COLOR */
-        #mentor-wu h2,
-        #mentor-chen h2,
-        #mentor-hsu h2,
-        #mentor-yang h2,
-        #mentor-lin h2,
-        #mentor-lu h2 { /* Applied to all mentor tab contents */
-            color: var(--new-mentor-theme-color);
-            border-bottom: 2px solid var(--new-mentor-theme-color);
-        }
-        
-        .tab-content h3 {
-            color: var(--secondary-color);
-            margin: 25px 0 15px;
-            font-size: 1.4rem;
-        }
-        
-        .tab-content h4 {
-            color: var(--medium-text);
-            margin: 20px 0 10px;
-            font-size: 1.2rem;
-        }
-        
-        .tab-content p, .tab-content li {
-            margin-bottom: 15px;
-            color: var(--medium-text);
-        }
-        
-        .tab-content ul, .tab-content ol {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-        
-        .tab-content li {
-            margin-bottom: 8px;
-        }
-        
-        .career-path {
-            background-color: #f0f7ff;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
-            margin: 20px 0;
-        }
-        
-        .career-stage {
-            display: flex;
-            margin: 15px 0;
-            align-items: center;
-        }
-        
-        .career-stage-icon {
-            background-color: var(--primary-color);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .career-stage-content {
-            flex-grow: 1;
-        }
-        
-        .timeline {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0;
-        }
-        
-        .timeline-item {
-            flex: 1;
-            text-align: center;
-            padding: 0 10px;
-            position: relative;
-        }
-        
-        .timeline-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 40px;
-            right: -50%;
-            width: 100%;
-            height: 3px;
-            background-color: var(--light-text);
-            z-index: 1;
-        }
-        
-        .timeline-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #fff;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--primary-color);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .timeline-year {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .timeline-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .grid-item {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px var(--shadow);
-        }
-        
-        .grid-item h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        
-        .strategy-section {
-            margin: 25px 0;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid;
-        }
-        
-        .data-driven {
-            background-color: rgba(66, 133, 244, 0.1);
-            border-left-color: var(--primary-color);
-        }
-        
-        .education {
-            background-color: rgba(52, 168, 83, 0.1);
-            border-left-color: var(--secondary-color);
-        }
-        
-        .collaboration {
-            background-color: rgba(251, 188, 5, 0.1);
-            border-left-color: var(--tertiary-color);
-        }
-        
-        .system {
-            background-color: rgba(234, 67, 53, 0.1);
-            border-left-color: var(--quaternary-color);
-        }
-        
-        .improvement {
-            background-color: rgba(103, 58, 183, 0.1);
-            border-left-color: #673ab7;
-        }
-        
-        .global {
-            background-color: rgba(0, 150, 136, 0.1);
-            border-left-color: #009688;
-        }
-        
-        .strategy-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-            color: inherit;
-        }
-        
-        .strategy-section h3 {
-            display: flex;
-            align-items: center;
-            margin-top: 0;
-        }
-        
-        .career-vision {
-            max-width: 600px;
-            margin: 40px auto;
-            text-align: center;
-        }
-        
-        .vision-step {
-            padding: 15px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            position: relative;
-            background-color: #fff;
-            box-shadow: 0 2px 6px var(--shadow);
-        }
-        
-        .vision-step:not(:last-child)::after {
-            content: '↑';
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        .vision-step:nth-child(1) {
-            background-color: #e8f4fc;
-        }
-        
-        .vision-step:nth-child(2) {
-            background-color: #e0f7fa;
-        }
-        
-        .vision-step:nth-child(3) {
-            background-color: #e0f2f1;
-        }
-        
-        .vision-step:nth-child(4) {
-            background-color: #e8eaf6;
-        }
-        
-        .vision-step:nth-child(5) {
-            background-color: #f3e5f5;
-        }
-        
-        .vision-step:nth-child(6) {
-            background-color: #ffecb3;
-        }
-        
-        .vision-step h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-        
-        .lhs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 8px var(--shadow);
-        }
-        
-        .lhs-table th, .lhs-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--light-text);
-        }
-        
-        .lhs-table th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: bold;
-        }
-        
-        .lhs-table tr:nth-child(even) {
-            background-color: rgba(0, 120, 212, 0.05); /* Using primary color */
-        }
-        
-        .lhs-table tr:hover {
-            background-color: rgba(0, 120, 212, 0.1); /* Using primary color */
-        }
-        
-        .code-block {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            white-space: pre-wrap;
-            margin: 20px 0;
-        }
-        
-        .mentor-tip {
-            background-color: #e0f2f1; /* Light teal background, matches accent color */
-            border-left: 4px solid var(--new-mentor-theme-color);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .mentor-tip strong {
-            color: var(--new-mentor-theme-color);
-        }
-        
-        /* Back button for career pages */
-        .back-to-portal {
-            display: inline-block;
-            background: var(--light-blue);
-            color: var(--dark-blue);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-        
-        .back-to-portal:hover {
-            background: var(--dark-blue);
-            color: white;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .portal-header {
-                padding: 40px 0 80px; /* Adjusted padding for smaller screens */
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .dna-icon {
-                display: none;
-            }
-            
-            .team-members {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab-btn {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .timeline {
-                flex-direction: column;
-            }
-            
-            .timeline-item {
-                margin-bottom: 30px;
-            }
-            
-            .timeline-item:not(:last-child)::after {
-                top: auto;
-                bottom: -15px;
-                right: auto;
-                left: 40px;
-                width: 3px;
-                height: 30px;
-            }
-            
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .team-members {
-                grid-template-columns: 1fr;
-            }
-            .bar-label {
-                font-size: 0.7rem; /* Slightly smaller font for very small screens */
-                width: 80px; /* Adjust width if necessary */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="portal" class="portal-page">
@@ -935,31 +67,31 @@
                 
                 <div class="chart-container">
                     <div class="chart-placeholder">
-                        <div class="bar" style="left: 7%; height: 65%; background-color: rgba(98, 100, 167, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">65%</div>
                             <div class="bar-label">CBME推動</div>
                         </div>
-                        <div class="bar" style="left: 20%; height: 80%; background-color: rgba(0, 120, 212, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">80%</div>
                             <div class="bar-label">數位工具</div>
                         </div>
-                        <div class="bar" style="left: 33%; height: 75%; background-color: rgba(255, 107, 107, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">75%</div>
                             <div class="bar-label">醫學人文</div>
                         </div>
-                        <div class="bar" style="left: 46%; height: 90%; background-color: rgba(20, 184, 166, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">90%</div>
                             <div class="bar-label">教學行政</div>
                         </div>
-                        <div class="bar" style="left: 59%; height: 70%; background-color: rgba(139, 92, 246, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">70%</div>
                             <div class="bar-label">制度設計</div>
                         </div>
-                        <div class="bar" style="left: 72%; height: 60%; background-color: rgba(245, 158, 11, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">60%</div>
                             <div class="bar-label">跨域合作</div>
                         </div>
-                        <div class="bar" style="left: 85%; height: 45%; background-color: rgba(6, 182, 212, 0.7);">
+                        <div class="bar" >
                             <div class="bar-value">45%</div>
                             <div class="bar-label">國際交流</div>
                         </div>
@@ -982,9 +114,9 @@
                 
                 <div class="team-members">
                     <div class="member-card" data-member="wu">
-                        <div class="member-color-bar" style="background: var(--member-wu-color);"></div>
+                        <div class="member-color-bar" ></div>
                         <div class="member-content">
-                            <div class="member-avatar" style="background: linear-gradient(120deg, #0078d4, #4285f4);">吳</div>
+                            <div class="member-avatar" >吳</div>
                             <h3 class="member-name">吳曉琪</h3>
                             <div class="member-title">教學行政管理員</div>
                             <div class="member-specialties">
@@ -997,9 +129,9 @@
                     </div>
                     
                     <div class="member-card" data-member="lin">
-                        <div class="member-color-bar" style="background: var(--member-lin-color);"></div>
+                        <div class="member-color-bar" ></div>
                         <div class="member-content">
-                            <div class="member-avatar" style="background: linear-gradient(120deg, #14b8a6, #34a853);">林</div>
+                            <div class="member-avatar" >林</div>
                             <h3 class="member-name">林淑雅</h3>
                             <div class="member-title">教學行政管理員</div>
                             <div class="member-specialties">
@@ -1012,9 +144,9 @@
                     </div>
                     
                     <div class="member-card" data-member="hsu">
-                        <div class="member-color-bar" style="background: var(--member-hsu-color);"></div>
+                        <div class="member-color-bar" ></div>
                         <div class="member-content">
-                            <div class="member-avatar" style="background: linear-gradient(120deg, #ff6b6b, #ff9f59);">許</div>
+                            <div class="member-avatar" >許</div>
                             <h3 class="member-name">許淑怡</h3>
                             <div class="member-title">教學行政管理員</div>
                             <div class="member-specialties">
@@ -1027,9 +159,9 @@
                     </div>
                     
                     <div class="member-card" data-member="yang">
-                        <div class="member-color-bar" style="background: var(--member-yang-color);"></div>
+                        <div class="member-color-bar" ></div>
                         <div class="member-content">
-                            <div class="member-avatar" style="background: linear-gradient(120deg, #6264a7, #a78bfa);">楊</div>
+                            <div class="member-avatar" >楊</div>
                             <h3 class="member-name">楊宜婷</h3>
                             <div class="member-title">教學行政管理員</div>
                             <div class="member-specialties">
@@ -1042,9 +174,9 @@
                     </div>
                     
                     <div class="member-card" data-member="chen">
-                        <div class="member-color-bar" style="background: var(--member-chen-color);"></div>
+                        <div class="member-color-bar" ></div>
                         <div class="member-content">
-                            <div class="member-avatar" style="background: linear-gradient(120deg, #10b981, #059669);">陳</div>
+                            <div class="member-avatar" >陳</div>
                             <h3 class="member-name">陳詩芸</h3>
                             <div class="member-title">教學行政管理員</div>
                             <div class="member-specialties">
@@ -1057,9 +189,9 @@
                     </div>
                     
                     <div class="member-card" data-member="lu">
-                        <div class="member-color-bar" style="background: var(--member-lu-color);"></div>
+                        <div class="member-color-bar" ></div>
                         <div class="member-content">
-                            <div class="member-avatar" style="background: linear-gradient(120deg, #f97316, #fb7185);">盧</div>
+                            <div class="member-avatar" >盧</div>
                             <h3 class="member-name">盧英云</h3>
                             <div class="member-title">教育行政與數位發展</div>
                             <div class="member-specialties">
@@ -1123,7 +255,7 @@
                 <h2>2. 核心競爭力</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>教學品質的制度化與數據化管理</h3>
                         <ul>
                             <li>建立標準化評估流程與數據追蹤機制</li>
@@ -1131,7 +263,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>醫學教育的創新設計與落實執行</h3>
                         <ul>
                             <li>課程設計從 needs assessment 到 curriculum mapping 的系統性方法</li>
@@ -1139,7 +271,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>生成式 AI 影片應用於臨床衛教</h3>
                         <ul>
                             <li>完成教學中心主辦影片教學課程</li>
@@ -1148,7 +280,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>支持年輕醫師的職涯導引規劃</h3>
                         <ul>
                             <li>設計尊重醫師自主性與心理安全的導師制度</li>
@@ -1275,24 +407,24 @@
                 <h2>5. 人生第二曲線（搭配醫院策略成長）</h2>
                 
                 <h3>第一曲線：目前的優勢與成就曲線</h3>
-                <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-blue">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="grid-item grid-blue">
                             <h4>醫學教育行政</h4>
                             <p>熟悉PGY 訓練計畫、及課程規劃</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                        <div class="grid-item grid-green">
                             <h4>數位工具整合</h4>
                             <p>能操作 Power Automate、Forms、Power BI、自動化報表系統等</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                        <div class="grid-item grid-yellow">
                             <h4>生成式 AI 教學</h4>
                             <p>操作 AI 生成式影片課程講師</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                        <div class="grid-item grid-red">
                             <h4>創意內容製作</h4>
                             <p>能設計醫學教育影片、動畫腳本、貼圖與教育素材</p>
                         </div>
@@ -1300,21 +432,21 @@
                 </div>
                 
                 <h3>第二曲線建構：培養與執行新角色的價值曲線</h3>
-                <div style="background-color: #e0f7fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-teal">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688;">
+                        <div class="grid-item grid-teal">
                             <h4>跨院／國際醫學教育設計</h4>
                             <p>從執行者→教育設計</p>
                             <p>發展 AMEE 報告-參與國際投稿與工作坊設計-提高一套「AI教案設計」</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                        <div class="grid-item grid-purple">
                             <h4>醫學教育創業家／產品開發者</h4>
                             <p>從內容製作者→教學串連／平台開發者</p>
                             <p>設計「互動教學」或「生成式醫教模組」，試行 Notion 或AI教材包</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(3, 169, 244, 0.1); border-left: 4px solid #03a9f4;">
+                        <div class="grid-item grid-lightblue">
                             <h4>內部人才培育與領導力開發者</h4>
                             <p>從教學推動者→組織變革催化者</p>
                             <p>建立「醫學教育人才發展架構」，推動AI思維與心理安全的中層主管訓練課程</p>
@@ -1379,7 +511,7 @@
                 <h2>7. Why AMEE？（課程主題與成長曲線的搭配）</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>AI / Technology Enhanced Learning (TEL)</h3>
                         <ul>
                             <li>探索最新AI於個人化學習與臨床決策支援的實踐方式</li>
@@ -1388,7 +520,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>Designing and Planning Learning (including curriculum)</h3>
                         <ul>
                             <li>更系統性地優化課程設計（從 needs assessment 到 curriculum mapping）</li>
@@ -1396,14 +528,14 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>Assessment and Feedback</h3>
                         <ul>
                             <li>業務視覺課程，但學習更進階的臨床評量工具（如 workplace-based assessment、CBME）將有助於未來設計標準化教案、跨院合作項目</li>
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>Supporting Learners</h3>
                         <ul>
                             <li>設計尊重制度，但可進一步學習如何建立心理安全感、減壓機制，促進學習動機的策略</li>
@@ -1519,7 +651,7 @@
                 <h2>2. 核心競爭力</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>數位工具應用推廣與流程優化</h3>
                         <ul>
                             <li>運用 Microsoft Forms、SharePoint、Power Automate 建立自動化行政流程</li>
@@ -1528,7 +660,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>醫學人文實踐與跨域策展</h3>
                         <ul>
                             <li>協助推動醫學人文課程，安排博物館導覽、藝術共感活動</li>
@@ -1537,7 +669,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>醫學教育行政與制度管理</h3>
                         <ul>
                             <li>熟悉醫事職類教育訓練制度、臨床教師申請與認證流程</li>
@@ -1546,7 +678,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>國際視野與職涯進修規劃</h3>
                         <ul>
                             <li>持續關注 AMEE 課程，聚焦醫學人文、AI 應用、臨床教師發展</li>
@@ -1666,9 +798,9 @@
                 <h2>5. 人生第二曲線</h2>
                 
                 <h3>第一曲線：穩定階段</h3>
-                <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-blue">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="grid-item grid-blue">
                             <h4>行政執行、表單管理、教學活動安排</h4>
                             <ul>
                                 <li><strong>角色：</strong>教學行政執行者</li>
@@ -1682,26 +814,26 @@
                 </div>
                 
                 <h3>第二曲線建構：創新轉型</h3>
-                <div style="background-color: #e0f7fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-teal">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688;">
+                        <div class="grid-item grid-teal">
                             <h4>數位化推動、教學制度設計</h4>
                             <p>運用科技工具優化教學流程，設計創新教學模式</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                        <div class="grid-item grid-purple">
                             <h4>人文課程開發</h4>
                             <p>結合醫學與人文，設計培養同理心與反思能力的教育內容</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(3, 169, 244, 0.1); border-left: 4px solid #03a9f4;">
+                        <div class="grid-item grid-lightblue">
                             <h4>跨部門整合</h4>
                             <p>連結不同專業領域，促進知識共創與協作學習</p>
                         </div>
                     </div>
                 </div>
                 
-                <div style="margin-top: 20px;">
+                <div class="mt-20">
                     <h4>角色轉型：醫學教育創新與人文整合策略領航者</h4>
                     <h4>特徵：</h4>
                     <ol>
@@ -1771,7 +903,7 @@
                 <h2>7. Why AMEE？（課程主題與成長曲線的搭配）</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>AI / Technology Enhanced Learning (TEL)</h3>
                         <ul>
                             <li>強化 Power Platform 應用的策略設計（如將學生學習軌跡自動化回饋）</li>
@@ -1780,7 +912,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>Humanities</h3>
                         <ul>
                             <li>建構模組化醫學人文課程，並設計學習評估量表（如反思回饋表、同理心量表）</li>
@@ -1788,7 +920,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>Faculty Development</h3>
                         <ul>
                             <li>改善臨床教師申請制度，導入教師評鑑與培訓模組</li>
@@ -1797,7 +929,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>Interprofessional and Team Learning</h3>
                         <ul>
                             <li>強化「全人照護教學討論會」制度設計，建立共學與互評流程</li>
@@ -1806,7 +938,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                    <div class="grid-item grid-purple">
                         <h3>The Scholarship of Teaching and Learning</h3>
                         <ul>
                             <li>撰寫醫學人文或教學行政創新主題的海報論文，投稿 AMEE 或國內醫學教育學會</li>
@@ -1917,27 +1049,27 @@
                 <h2>2. 核心競爭力</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>醫學教學制度與行政管理流程設計</h3>
                         <p>具備豐富的醫學教育行政經驗，熟悉各類教學制度的設計與實施流程，能有效規劃與優化教學管理系統。</p>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>跨部門協調與溝通能力</h3>
                         <p>擅長在複雜的醫療組織環境中進行跨科室協調與溝通，能有效整合各單位資源以支持教學活動的順利執行。</p>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>學生學習歷程平台建置與資料整合</h3>
                         <p>主導學員學習歷程系統的建置與維護，熟悉教學資料的收集、整合與分析，為教學品質改進提供數據支持。</p>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>評鑑資料彙整與QCC實務能力</h3>
                         <p>具備教學醫院評鑑資料的彙整與準備經驗，熟悉品質管理與持續改進的方法，能有效運用QCC工具推動教學品質提升。</p>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                    <div class="grid-item grid-purple">
                         <h3>教學與制度設計潛力</h3>
                         <p>展現在教學制度創新與人文教育活動設計方面的潛力，具備系統性思考與創新能力，能為醫學教育帶來新視角。</p>
                     </div>
@@ -2044,9 +1176,9 @@
                 <h2>5. 人生第二曲線策略</h2>
                 
                 <h3>第一曲線：目前的優勢與成就曲線</h3>
-                <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-blue">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="grid-item grid-blue">
                             <h4>教學行政執行與制度落實</h4>
                             <ul>
                                 <li>實習醫學生教學行政管理</li>
@@ -2060,14 +1192,14 @@
                 </div>
                 
                 <h3>第二曲線建構：培養與執行新角色的價值曲線</h3>
-                <div style="background-color: #e0f7fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-teal">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688;">
+                        <div class="grid-item grid-teal">
                             <h4>醫學院校教職發展制度與跨院校實習推動者</h4>
                             <p>從單一醫院內部管理拓展至跨院校合作與人才培育體系建設，成為連結各醫學教育機構的樞紐角色</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                        <div class="grid-item grid-purple">
                             <h4>建立多重角色定位</h4>
                             <ul>
                                 <li>行政管理者：建立高效能教學行政體系</li>
@@ -2130,7 +1262,7 @@
                 <h2>7. Why AMEE？（課程主題與成長曲線的搭配）</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>Supporting Learners（學員支持）</h3>
                         <h4>為什麼適合我：</h4>
                         <ul>
@@ -2144,7 +1276,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>Education and Management（教育與管理）</h3>
                         <h4>為什麼適合我：</h4>
                         <ul>
@@ -2159,7 +1291,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>AI / Technology Enhanced Learning (TEL)（AI與科技輔助學習）</h3>
                         <h4>為什麼適合我：</h4>
                         <ul>
@@ -2296,7 +1428,7 @@
                 <h2>2. 核心競爭力</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>教學醫院評鑑資料彙整與制度分析能力</h3>
                         <ul>
                             <li>協調各職類教學事務推動</li>
@@ -2306,7 +1438,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>醫事職類訓練制度修訂與政策執行經驗</h3>
                         <ul>
                             <li>具備支援各職類訓練計畫修訂經驗</li>
@@ -2316,7 +1448,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>Power Platform數位工具應用能力</h3>
                         <ul>
                             <li>熟悉Power Automate、SharePoint、Forms等工具</li>
@@ -2326,7 +1458,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>QCC圈經驗與跨組協作能力</h3>
                         <ul>
                             <li>參與醫學教育品質改善主題QCC圈</li>
@@ -2448,19 +1580,19 @@
                 <h2>5. 人生第二曲線（搭配醫院策略成長）</h2>
                 
                 <h3>第一曲線：目前的優勢與成就曲線</h3>
-                <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-blue">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="grid-item grid-blue">
                             <h4>行政執行者</h4>
                             <p>負責日常教學行政事務與醫事人員培訓業務執行</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                        <div class="grid-item grid-green">
                             <h4>計畫修訂彙整者</h4>
                             <p>協助各職類教育訓練計畫修訂與標準化</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                        <div class="grid-item grid-yellow">
                             <h4>教學資料紀錄與管理者</h4>
                             <p>負責教學活動記錄整理與培訓數據管理</p>
                         </div>
@@ -2468,19 +1600,19 @@
                 </div>
                 
                 <h3>第二曲線建構：培養與執行新角色的價值曲線</h3>
-                <div style="background-color: #e0f7fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-teal">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688;">
+                        <div class="grid-item grid-teal">
                             <h4>教育制度支持與教學資料整合的穩定策劃者</h4>
                             <p>從執行者轉型為制度設計與資料整合的策略規劃者</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                        <div class="grid-item grid-purple">
                             <h4>e-Portfolio與學習歷程系統設計參與者</h4>
                             <p>參與數位學習平台設計，逐步形成教學成果架構</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(3, 169, 244, 0.1); border-left: 4px solid #03a9f4;">
+                        <div class="grid-item grid-lightblue">
                             <h4>臨床教師制度化支持與資料推動者</h4>
                             <p>支援臨床教師制度化教學活動、資料追蹤與共識形成機制</p>
                             <p>積極參與跨部門教育品質改善行動，累積制度設計協調力與數據素養</p>
@@ -2550,7 +1682,7 @@
                 <h2>7. Why AMEE？（課程主題與成長曲線的搭配）</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>Technology Enhanced Learning (TEL)</h3>
                         <ul>
                             <li>因應目前正推動資料自動化與e-Portfolio系統建置</li>
@@ -2559,7 +1691,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>Designing and Planning Learning</h3>
                         <ul>
                             <li>作為課程與制度支援人員，需理解教學設計的核心邏輯與mapping過程</li>
@@ -2567,7 +1699,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>Assessment</h3>
                         <ul>
                             <li>有助於深化CBME與EPA對應之評量設計國際視野</li>
@@ -2575,7 +1707,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>Interprofessional and Team Learning</h3>
                         <ul>
                             <li>呼應跨領域教學討論與全人照護議題推動落實</li>
@@ -2692,7 +1824,7 @@
                 <h2>2. 核心競爭力</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>醫學教育制度執行力</h3>
                         <ul>
                             <li>負責彙整教學醫院評鑑中第5.3項「住院醫師」相關資料，協調各科部教學業務進度</li>
@@ -2703,7 +1835,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>數位教學與平台整合力</h3>
                         <ul>
                             <li>負責院內影音教學平台整合與管理</li>
@@ -2713,7 +1845,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>人文課程與跨職教育策劃力</h3>
                         <ul>
                             <li>規劃涵蓋醫病溝通、臨床倫理與敘事醫學的人文課程</li>
@@ -2826,9 +1958,9 @@
                 <h2>5. 人生第二曲線（搭配醫院策略成長）</h2>
                 
                 <h3>第一曲線：目前的優勢與成就曲線</h3>
-                <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-blue">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="grid-item grid-blue">
                             <h4>醫學教育行政專業與制度執行者</h4>
                             <ul>
                                 <li>熟悉住院醫師訓練流程、課程設計、CBME實施與評核規劃</li>
@@ -2840,19 +1972,19 @@
                 </div>
                 
                 <h3>第二曲線建構：培養與執行新角色的價值曲線</h3>
-                <div style="background-color: #e0f7fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-teal">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688;">
+                        <div class="grid-item grid-teal">
                             <h4>醫學敘事推動者</h4>
                             <p>結合敘事、人文、藝術與科技，開創跨界課程</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                        <div class="grid-item grid-purple">
                             <h4>創新課程策展人</h4>
                             <p>開始累積內容資產（反思筆記、故事集、課程模組）</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(3, 169, 244, 0.1); border-left: 4px solid #03a9f4;">
+                        <div class="grid-item grid-lightblue">
                             <h4>教學影響力經營者</h4>
                             <p>從教學制度「執行者」走向「創造者」與「連結者」</p>
                         </div>
@@ -2904,7 +2036,7 @@
                 <h2>7. Why AMEE？（課程主題與成長曲線的搭配）</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>Designing and Planning Learning</h3>
                         <ul>
                             <li>建構以學習者為中心的教學設計流程（如 Backward Design）</li>
@@ -2913,7 +2045,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>Teaching and Facilitating Learning</h3>
                         <ul>
                             <li>掌握臨床與課堂教學技巧（如互動式教學、PBL、模擬教學）</li>
@@ -2922,7 +2054,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>Humanities</h3>
                         <ul>
                             <li>將敘事醫學、藝術、倫理、哲學等元素融入醫學教育</li>
@@ -2931,7 +2063,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>Assessment</h3>
                         <ul>
                             <li>理解格式性（formative）與總結性（summative）評量的設計原則</li>
@@ -3062,7 +2194,7 @@
                 <h2>2. 核心競爭力</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>教學流程數位轉型與自動化整合</h3>
                         <ul>
                             <li>導入 Power Automate、Power Apps、SharePoint 等工具整合教學行政流程</li>
@@ -3071,7 +2203,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>國內外醫學教育會議參與與經驗交流</h3>
                         <ul>
                             <li>實際參與 AMEE 等國際會議，關注 AI OSCE、CBME 等教學趨勢</li>
@@ -3080,7 +2212,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>臨床技能評量規劃與品質監測</h3>
                         <ul>
                             <li>長期參與 OSCE 測驗設計、考官訓練、SP 訓練與跨單位合作演練</li>
@@ -3088,7 +2220,7 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>教學成果展現與專業影響力擴散</h3>
                         <ul>
                             <li>積極參與院內競賽、創意提案等教學創新活動</li>
@@ -3206,20 +2338,20 @@
                 <h2>5. 人生第二曲線（搭配醫院策略成長）</h2>
                 
                 <h3>第一曲線：目前的優勢與成就曲線</h3>
-                <div style="background-color: #e8f4fc; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-blue">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                        <div class="grid-item grid-blue">
                             <h4>臨床技能教育行政與評量執行者</h4>
                             <p>熟稔 OSCE 測驗流程，擔任考官訓練與標準化病人教學推動者</p>
                             <p>為 OSCE 國考與院內跨領域教學的實務執行中堅</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                        <div class="grid-item grid-green">
                             <h4>數位工具整合</h4>
                             <p>善用Power Platform（如Power Automate、Power BI等），等行政流程數位化</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                        <div class="grid-item grid-yellow">
                             <h4>教學內容創意設計與簡報視覺化推動者</h4>
                             <p>能製作具結構性與吸引力的教材與成果輸出，參與院內競賽與分享</p>
                         </div>
@@ -3227,14 +2359,14 @@
                 </div>
                 
                 <h3>第二曲線建構：培養與執行新角色的價值曲線</h3>
-                <div style="background-color: #e0f7fa; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+                <div class="info-box info-teal">
                     <div class="grid-container">
-                        <div class="grid-item" style="background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688;">
+                        <div class="grid-item grid-teal">
                             <h4>教學創新應用與 AI 教案模組開發者</h4>
                             <p>發展生成式 AI 模組應用於臨床溝通訓練、SP 模擬、考官輔助教材</p>
                         </div>
                         
-                        <div class="grid-item" style="background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7;">
+                        <div class="grid-item grid-purple">
                             <h4>臨床技能評量整合與品質協調者</h4>
                             <p>系統性整合 OSCE、EPA 等評量工具，制定資料標準與統一規格</p>
                             <p>建立「教案－訓練－評量－回饋」連續路徑，發展訓練地圖與評估工具套件</p>
@@ -3300,7 +2432,7 @@
                 <h2>7. Why AMEE？（課程主題與成長曲線的搭配）</h2>
                 
                 <div class="grid-container">
-                    <div class="grid-item" style="background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color);">
+                    <div class="grid-item grid-blue">
                         <h3>Technology Enhanced Learning (TEL)</h3>
                         <ul>
                             <li>已實作 Power Platform，欲關注AI 應用於臨床學習、生成式 AI 教案設計、科技輔助評量系統</li>
@@ -3309,21 +2441,21 @@
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color);">
+                    <div class="grid-item grid-green">
                         <h3>Designing and Planning Learning (Curriculum)</h3>
                         <ul>
                             <li>強化評估與回饋機制，有效的課程設計能搭配適當的評估工具，幫助教師與學生掌握學習進展與成效</li>
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color);">
+                    <div class="grid-item grid-yellow">
                         <h3>Assessment</h3>
                         <ul>
                             <li>深入理解 CBE-HP 與 workplace-based assessment 的最新方法，並發展能夠支援教師與學員成長的數據導向回饋機制</li>
                         </ul>
                     </div>
                     
-                    <div class="grid-item" style="background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color);">
+                    <div class="grid-item grid-red">
                         <h3>Interprofessional and Team Learning</h3>
                         <ul>
                             <li>學習跨專業教學設計的國際經驗與工具，進而建立院內可共學、共用、共設的臨床教育資源模式</li>
@@ -3393,115 +2525,6 @@
         </div>
     </div>
     
-    <script>
-        // Animate bars on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const bars = document.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                const originalHeight = bar.style.height;
-                bar.style.height = '0';
-                setTimeout(() => {
-                    bar.style.height = originalHeight;
-                }, 300);
-            });
-            
-            // Tab functionality for career pages
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            // const tabContents = document.querySelectorAll('.tab-content'); // Not directly needed if using parentPage
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
-                    // const memberPrefix = tabId.split('-')[1] || ''; // Not strictly needed for this logic
-                    
-                    const parentPage = this.closest('.career-page');
-                    if (!parentPage) return; // Should not happen if structure is correct
-
-                    const relatedButtons = parentPage.querySelectorAll('.tab-btn');
-                    const relatedContents = parentPage.querySelectorAll('.tab-content');
-                    
-                    relatedButtons.forEach(btn => btn.classList.remove('active'));
-                    relatedContents.forEach(content => content.classList.remove('active'));
-                    
-                    this.classList.add('active');
-                    const targetContent = parentPage.querySelector('#' + tabId); // Scope selector to parentPage
-                    if (targetContent) {
-                        targetContent.classList.add('active');
-                    }
-                });
-            });
-            
-            // Member card click to navigate to career page
-            const memberCards = document.querySelectorAll('.member-card');
-            memberCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const member = this.getAttribute('data-member');
-                    showCareerPage(member);
-                });
-            });
-            
-            // View button click to navigate to career page
-            const viewButtons = document.querySelectorAll('.view-button');
-            viewButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation(); 
-                    const member = this.getAttribute('data-member');
-                    showCareerPage(member);
-                });
-            });
-            
-            // Back button click to return to portal
-            const backButtons = document.querySelectorAll('.back-to-portal');
-            backButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    showPortal();
-                });
-            });
-            
-            function showCareerPage(member) {
-                document.getElementById('portal').style.display = 'none';
-                
-                document.querySelectorAll('.career-page').forEach(page => {
-                    page.style.display = 'none'; // Hide all first
-                    page.classList.remove('active'); // Remove active class from page itself
-                });
-                
-                const targetPage = document.getElementById(`career-${member}`);
-                if (targetPage) {
-                    targetPage.style.display = 'block';
-                    // targetPage.classList.add('active'); // Adding active to the page itself if needed for other styles
-
-                    // Ensure the first tab is active when a career page is shown
-                    const firstTabButton = targetPage.querySelector('.tab-btn');
-                    const firstTabContent = targetPage.querySelector('.tab-content');
-                    if (firstTabButton && firstTabContent) {
-                         // Deactivate all tabs first
-                        const allTabsOnPage = targetPage.querySelectorAll('.tab-btn');
-                        const allContentsOnPage = targetPage.querySelectorAll('.tab-content');
-                        allTabsOnPage.forEach(btn => btn.classList.remove('active'));
-                        allContentsOnPage.forEach(content => content.classList.remove('active'));
-                        
-                        // Activate the first one
-                        firstTabButton.classList.add('active');
-                        firstTabContent.classList.add('active');
-                    }
-                }
-                window.scrollTo(0, 0);
-            }
-            
-            function showPortal() {
-                document.getElementById('portal').style.display = 'block';
-                
-                document.querySelectorAll('.career-page').forEach(page => {
-                    page.style.display = 'none';
-                    page.classList.remove('active');
-                });
-                window.scrollTo(0, 0);
-            }
-
-            // Ensure portal is shown by default and career pages are hidden
-            showPortal(); 
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
