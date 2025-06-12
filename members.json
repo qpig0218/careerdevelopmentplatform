@@ -1,0 +1,86 @@
+[
+  {
+    "id": "wu",
+    "name": "吳曉琪",
+    "title": "教學行政管理員",
+    "avatar": "吳",
+    "colorBar": "var(--member-wu-color)",
+    "avatarColor": "linear-gradient(120deg, #0078d4, #4285f4)",
+    "specialties": ["醫學教育行政", "數位教學推動", "GenAI 應用"],
+    "vision": "協助醫學教育數位轉型與成為生成式AI應用專家",
+    "sections": {
+      "profile": "<h2>1. 個人專業檔案</h2><p>作為一位醫學教育逾十年的教育引路人，致力於PGY訓練計畫、醫學教育系統建置及課程評鑑。近年轉向數位轉型與AI應用，積極參與生成式AI影片製作教學，並於國際會議交流。</p>",
+      "competencies": "<h2>2. 核心競爭力</h2><ul><li>教學品質數據化與自動化流程</li><li>醫學教育創新設計與CBME應用</li><li>生成式AI影片於臨床衛教</li><li>年輕醫師職涯導引規劃</li></ul>"
+    }
+  },
+  {
+    "id": "lin",
+    "name": "林淑雅",
+    "title": "教學行政管理員",
+    "avatar": "林",
+    "colorBar": "var(--member-lin-color)",
+    "avatarColor": "linear-gradient(120deg, #14b8a6, #34a853)",
+    "specialties": ["醫學教育行政", "人文課程策劃", "跨職類教育"],
+    "vision": "融合人文素養與數位教學，打造全人醫療教育新典範",
+    "sections": {
+      "profile": "<h2>1. 個人專業檔案</h2><p>專注於住院醫師訓練規劃與教學品質追蹤，負責影音教學平台整合與全院跨職類人文課程策劃。</p>",
+      "competencies": "<h2>2. 核心競爭力</h2><ul><li>醫學教育制度執行與評鑑整合</li><li>數位教學與平台管理</li><li>人文課程與跨職教育策劃</li></ul>"
+    }
+  },
+  {
+    "id": "hsu",
+    "name": "許淑怡",
+    "title": "教學行政管理員",
+    "avatar": "許",
+    "colorBar": "var(--member-hsu-color)",
+    "avatarColor": "linear-gradient(120deg, #ff6b6b, #ff9f59)",
+    "specialties": ["實習醫學生訓練", "教學品質管理", "學習歷程系統"],
+    "vision": "成為醫學教育制度設計與創新引領者",
+    "sections": {
+      "profile": "<h2>1. 個人專業檔案</h2><p>具18年醫學教育行政經驗，主責實習醫學生訓練、教師獎項統計及學習歷程平台建置，推動教學制度與品質管理。</p>",
+      "competencies": "<h2>2. 核心競爭力</h2><ul><li>教學制度與行政流程設計</li><li>跨部門協調與溝通</li><li>學習歷程平台建置與資料整合</li><li>評鑑資料彙整與QCC實務</li></ul>"
+    }
+  },
+  {
+    "id": "yang",
+    "name": "楊宜婷",
+    "title": "教學行政管理員",
+    "avatar": "楊",
+    "colorBar": "var(--member-yang-color)",
+    "avatarColor": "linear-gradient(120deg, #6264a7, #a78bfa)",
+    "specialties": ["醫事教育行政", "CBME推動", "Power Platform"],
+    "vision": "打造醫事職類數位化教學平台與制度落實橋梁",
+    "sections": {
+      "profile": "<h2>1. 個人專業檔案</h2><p>自2019年投入醫事職類教育訓練與制度推動，擅長資料整合與政策實作，並在醫療AI競賽獲獎。</p>",
+      "competencies": "<h2>2. 核心競爭力</h2><ul><li>評鑑資料彙整與制度分析</li><li>職類訓練制度修訂與CBME推動</li><li>Power Platform自動化應用</li><li>QCC圈與跨組協作</li></ul>"
+    }
+  },
+  {
+    "id": "chen",
+    "name": "陳詩芸",
+    "title": "教學行政管理員",
+    "avatar": "陳",
+    "colorBar": "var(--member-chen-color)",
+    "avatarColor": "linear-gradient(120deg, #10b981, #059669)",
+    "specialties": ["數位工具應用", "醫學人文推動", "教學活動設計"],
+    "vision": "結合數位轉型與人文素養，成為教育創新策略領航者",
+    "sections": {
+      "profile": "<h2>1. 個人專業檔案</h2><p>專長於數位工具應用與流程優化，結合醫學人文推動與教學活動設計，並熟悉國際醫學教育趨勢。</p>",
+      "competencies": "<h2>2. 核心競爭力</h2><ul><li>數位工具應用與行政流程自動化</li><li>醫學人文實踐與策展</li><li>教育行政與制度管理</li><li>國際視野與進修規劃</li></ul>"
+    }
+  },
+  {
+    "id": "lu",
+    "name": "盧英云",
+    "title": "教育行政與數位發展",
+    "avatar": "盧",
+    "colorBar": "var(--member-lu-color)",
+    "avatarColor": "linear-gradient(120deg, #f97316, #fb7185)",
+    "specialties": ["臨床技能評量", "數位賦能推動", "OSCE設計"],
+    "vision": "推動臨床技能數位化評量與打造醫學教育創新整合平台",
+    "sections": {
+      "profile": "<h2>1. 個人專業檔案</h2><p>專責臨床技能中心多項計畫，推動Power Platform及BI應用，提升教學效率與資料視覺化。</p>",
+      "competencies": "<h2>2. 核心競爭力</h2><ul><li>教學流程自動化整合</li><li>國內外醫學教育會議交流</li><li>臨床技能評量規劃</li><li>教學成果展現與影響力擴散</li></ul>"
+    }
+  }
+]
