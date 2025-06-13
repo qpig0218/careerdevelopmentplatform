@@ -1,0 +1,14 @@
+{
+  "name": "career-platform-server",
+  "version": "1.0.0",
+  "description": "Express server for career development platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "body-parser": "^1.20.2"
+  }
+}
