@@ -1,0 +1,8 @@
+[
+  {"id": "wu", "progress": "80%", "needs": "Advanced AI integration"},
+  {"id": "lin", "progress": "65%", "needs": "Cross-disciplinary training"},
+  {"id": "hsu", "progress": "90%", "needs": "System integration support"},
+  {"id": "yang", "progress": "70%", "needs": "Automation training"},
+  {"id": "chen", "progress": "60%", "needs": "International collaboration"},
+  {"id": "lu", "progress": "75%", "needs": "Skill evaluation tools"}
+]
