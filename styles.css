@@ -1,4 +1,4 @@
-        :root {
+
             --primary-color: #0078d4;
             --secondary-color: #6264a7;
             --tertiary-color: #ff6b6b;
@@ -865,43 +865,4 @@
                 width: 80px; /* Adjust width if necessary */
             }
         }
-/* Inline style replacements */
-
-/* Member card gradients */
-.member-card[data-member="wu"] .member-color-bar { background: var(--member-wu-color); }
-.member-card[data-member="wu"] .member-avatar { background: linear-gradient(120deg, #0078d4, #4285f4); }
-.member-card[data-member="lin"] .member-color-bar { background: var(--member-lin-color); }
-.member-card[data-member="lin"] .member-avatar { background: linear-gradient(120deg, #14b8a6, #34a853); }
-.member-card[data-member="hsu"] .member-color-bar { background: var(--member-hsu-color); }
-.member-card[data-member="hsu"] .member-avatar { background: linear-gradient(120deg, #ff6b6b, #ff9f59); }
-.member-card[data-member="yang"] .member-color-bar { background: var(--member-yang-color); }
-.member-card[data-member="yang"] .member-avatar { background: linear-gradient(120deg, #6264a7, #a78bfa); }
-.member-card[data-member="chen"] .member-color-bar { background: var(--member-chen-color); }
-.member-card[data-member="chen"] .member-avatar { background: linear-gradient(120deg, #10b981, #059669); }
-.member-card[data-member="lu"] .member-color-bar { background: var(--member-lu-color); }
-.member-card[data-member="lu"] .member-avatar { background: linear-gradient(120deg, #f97316, #fb7185); }
-
-/* Career chart bars */
-.chart-placeholder .bar:nth-child(1) { left: 7%; height: 65%; background-color: rgba(98, 100, 167, 0.7); }
-.chart-placeholder .bar:nth-child(2) { left: 20%; height: 80%; background-color: rgba(0, 120, 212, 0.7); }
-.chart-placeholder .bar:nth-child(3) { left: 33%; height: 75%; background-color: rgba(255, 107, 107, 0.7); }
-.chart-placeholder .bar:nth-child(4) { left: 46%; height: 90%; background-color: rgba(20, 184, 166, 0.7); }
-.chart-placeholder .bar:nth-child(5) { left: 59%; height: 70%; background-color: rgba(139, 92, 246, 0.7); }
-.chart-placeholder .bar:nth-child(6) { left: 72%; height: 60%; background-color: rgba(245, 158, 11, 0.7); }
-.chart-placeholder .bar:nth-child(7) { left: 85%; height: 45%; background-color: rgba(6, 182, 212, 0.7); }
-
-/* Grid item background helpers */
-.grid-blue { background-color: rgba(66, 133, 244, 0.1); border-left: 4px solid var(--primary-color); }
-.grid-green { background-color: rgba(52, 168, 83, 0.1); border-left: 4px solid var(--secondary-color); }
-.grid-yellow { background-color: rgba(251, 188, 5, 0.1); border-left: 4px solid var(--tertiary-color); }
-.grid-red { background-color: rgba(234, 67, 53, 0.1); border-left: 4px solid var(--quaternary-color); }
-.grid-purple { background-color: rgba(103, 58, 183, 0.1); border-left: 4px solid #673ab7; }
-.grid-teal { background-color: rgba(0, 150, 136, 0.1); border-left: 4px solid #009688; }
-.grid-lightblue { background-color: rgba(3, 169, 244, 0.1); border-left: 4px solid #03a9f4; }
-
-/* Info box styling */
-.info-box { padding: 20px; border-radius: 10px; margin-bottom: 30px; }
-.info-blue { background-color: #e8f4fc; }
-.info-teal { background-color: #e0f7fa; }
-.mt-20 { margin-top: 20px; }
 
