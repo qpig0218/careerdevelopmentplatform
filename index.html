@@ -1034,6 +1034,27 @@
                         </div>
                         <div class="tab-content active" id="profile-${m.id}">${m.sections.profile}</div>
                         <div class="tab-content" id="competencies-${m.id}">${m.sections.competencies}</div>
+
+                        <h3>新增進度</h3>
+                        <form class="progress-form" data-member="${m.id}">
+                            <input type="text" name="goal" placeholder="目標" required>
+                            <input type="date" name="date" required>
+                            <textarea name="description" placeholder="描述" required></textarea>
+                            <button type="submit">送出</button>
+                        </form>
+
+                        <div class="progress-filter">
+                            <input type="date" name="start">
+                            <input type="date" name="end">
+                            <button class="query-progress" data-member="${m.id}">查詢</button>
+                        </div>
+
+                        <table class="progress-table" data-member="${m.id}">
+                            <thead>
+                                <tr><th>目標</th><th>日期</th><th>描述</th></tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>`;
                 careerContainer.appendChild(page);
             });
@@ -1046,6 +1067,23 @@
                     bar.style.height = originalHeight;
                 }, 300);
             });
+
+            async function loadProgress(member, start = '', end = '') {
+                const params = new URLSearchParams({ member });
+                if (start) params.append('start', start);
+                if (end) params.append('end', end);
+                const res = await fetch('/api/progress?' + params.toString());
+                const records = await res.json();
+                const tbody = document.querySelector(`#career-${member} .progress-table tbody`);
+                if (!tbody) return;
+                tbody.innerHTML = records.map(r => `
+                    <tr>
+                        <td>${r.goal}</td>
+                        <td>${r.date}</td>
+                        <td>${r.description}</td>
+                    </tr>
+                `).join('');
+            }
 
             function attachEvents() {
                 document.querySelectorAll('.tab-btn').forEach(button => {
@@ -1074,6 +1112,34 @@
                 document.querySelectorAll('.back-to-portal').forEach(button => {
                     button.addEventListener('click', showPortal);
                 });
+
+                document.querySelectorAll('.progress-form').forEach(form => {
+                    form.addEventListener('submit', async e => {
+                        e.preventDefault();
+                        const data = {
+                            member: form.dataset.member,
+                            goal: form.goal.value,
+                            date: form.date.value,
+                            description: form.description.value
+                        };
+                        await fetch('/api/progress', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+                        form.reset();
+                        loadProgress(data.member);
+                    });
+                });
+
+                document.querySelectorAll('.query-progress').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const container = btn.closest('.container');
+                        const start = container.querySelector('[name=start]').value;
+                        const end = container.querySelector('[name=end]').value;
+                        loadProgress(btn.dataset.member, start, end);
+                    });
+                });
             }
 
             function showCareerPage(member) {
@@ -1090,6 +1156,7 @@
                         firstBtn.classList.add('active');
                         firstContent.classList.add('active');
                     }
+                    loadProgress(member);
                 }
                 window.scrollTo(0,0);
             }
