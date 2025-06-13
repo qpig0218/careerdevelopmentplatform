@@ -902,70 +902,27 @@
         </header>
         
         <main class="portal-main container">
-            <section class="insights-card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#6264a7"/>
-                            <path d="M6.5 12H17.5" stroke="#6264a7" stroke-width="2"/>
-                            <path d="M12 6.5V17.5" stroke="#6264a7" stroke-width="2"/>
-                        </svg>
-                        團隊職涯發展分析
-                    </h2>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">教育專業人才</div>
+            <div id="insights-container"></div>
+            <template id="insights-template">
+                <section class="insights-card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#6264a7"/>
+                                <path d="M6.5 12H17.5" stroke="#6264a7" stroke-width="2"/>
+                                <path d="M12 6.5V17.5" stroke="#6264a7" stroke-width="2"/>
+                            </svg>
+                            團隊職涯發展分析
+                        </h2>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-label">平均資歷（年）</div>
+
+                    <div class="stats-grid"></div>
+
+                    <div class="chart-container">
+                        <div class="chart-placeholder"></div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4.5</div>
-                        <div class="stat-label">核心領域/人</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">85%</div>
-                        <div class="stat-label">數位轉型積極度</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <div class="chart-placeholder">
-                        <div class="bar" style="left: 7%; height: 65%; background-color: rgba(98, 100, 167, 0.7);">
-                            <div class="bar-value">65%</div>
-                            <div class="bar-label">CBME推動</div>
-                        </div>
-                        <div class="bar" style="left: 20%; height: 80%; background-color: rgba(0, 120, 212, 0.7);">
-                            <div class="bar-value">80%</div>
-                            <div class="bar-label">數位工具</div>
-                        </div>
-                        <div class="bar" style="left: 33%; height: 75%; background-color: rgba(255, 107, 107, 0.7);">
-                            <div class="bar-value">75%</div>
-                            <div class="bar-label">醫學人文</div>
-                        </div>
-                        <div class="bar" style="left: 46%; height: 90%; background-color: rgba(20, 184, 166, 0.7);">
-                            <div class="bar-value">90%</div>
-                            <div class="bar-label">教學行政</div>
-                        </div>
-                        <div class="bar" style="left: 59%; height: 70%; background-color: rgba(139, 92, 246, 0.7);">
-                            <div class="bar-value">70%</div>
-                            <div class="bar-label">制度設計</div>
-                        </div>
-                        <div class="bar" style="left: 72%; height: 60%; background-color: rgba(245, 158, 11, 0.7);">
-                            <div class="bar-value">60%</div>
-                            <div class="bar-label">跨域合作</div>
-                        </div>
-                        <div class="bar" style="left: 85%; height: 45%; background-color: rgba(6, 182, 212, 0.7);">
-                            <div class="bar-value">45%</div>
-                            <div class="bar-label">國際交流</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </template>
             
             <section class="team-card">
                 <div class="card-header">
@@ -995,8 +952,58 @@
     <div id="career-pages"></div>
 <script>
         document.addEventListener('DOMContentLoaded', async function() {
-            const response = await fetch('members.json');
-            const members = await response.json();
+            const [membersRes, statsRes] = await Promise.all([
+                fetch('members.json'),
+                fetch('/api/stats')
+            ]);
+            const members = await membersRes.json();
+            const stats = await statsRes.json();
+
+            const insightsTemplate = document.getElementById('insights-template');
+            const insightsContainer = document.getElementById('insights-container');
+            if (insightsTemplate && insightsContainer) {
+                const insightNode = insightsTemplate.content.cloneNode(true);
+                const grid = insightNode.querySelector('.stats-grid');
+                grid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.professionals}</div>
+                        <div class="stat-label">教育專業人才</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.avgExperience}</div>
+                        <div class="stat-label">平均資歷（年）</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.coreFieldsPerPerson}</div>
+                        <div class="stat-label">核心領域/人</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.digitalEnthusiasm}%</div>
+                        <div class="stat-label">數位轉型積極度</div>
+                    </div>`;
+
+                const chart = insightNode.querySelector('.chart-placeholder');
+                stats.chart.forEach((c, i) => {
+                    const bar = document.createElement('div');
+                    bar.className = 'bar';
+                    bar.style.left = `${7 + i * 13}%`;
+                    bar.style.height = `${c.value}%`;
+                    bar.style.backgroundColor = c.color;
+                    bar.innerHTML = `<div class="bar-value">${c.value}%</div><div class="bar-label">${c.label}</div>`;
+                    chart.appendChild(bar);
+                });
+
+                insightsContainer.appendChild(insightNode);
+
+                const bars = insightsContainer.querySelectorAll('.bar');
+                bars.forEach(bar => {
+                    const originalHeight = bar.style.height;
+                    bar.style.height = '0';
+                    setTimeout(() => {
+                        bar.style.height = originalHeight;
+                    }, 300);
+                });
+            }
 
             const teamContainer = document.getElementById('team-members');
             const careerContainer = document.getElementById('career-pages');
@@ -1036,15 +1043,6 @@
                         <div class="tab-content" id="competencies-${m.id}">${m.sections.competencies}</div>
                     </div>`;
                 careerContainer.appendChild(page);
-            });
-
-            const bars = document.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                const originalHeight = bar.style.height;
-                bar.style.height = '0';
-                setTimeout(() => {
-                    bar.style.height = originalHeight;
-                }, 300);
             });
 
             function attachEvents() {
